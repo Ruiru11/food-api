@@ -33,7 +33,7 @@ def signup():
 
 @mod_users.route('/', methods=['GET'])
 def root():
-    return ("FOOD API V1")
+    return ("FOOD API V1 .An api service for the First-food-fast project")
 
 
 
