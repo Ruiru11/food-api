@@ -1,14 +1,14 @@
-langauge:python
+language: python
 python:
-  "3.6"
+ - "3.6.6"
 
 install:
-  -pip install -r requirements.txt
-  -pip install coveralls
-  -pip install pytest-cov
+  - pip install -r requirements.txt
+  - pip install coveralls
+  - pip install pytest-cov
 
-  script:
-    -pytest test_order.py --cov=app
+script: 
+  - pytest test_order.py --cover-package=app
 
-  after_sucess:
-    -coveralls
+after_success:
+  - coveralls
