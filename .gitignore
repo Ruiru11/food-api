@@ -2,4 +2,5 @@
 *.pyc
 *.vscode
 *.venv
-*.htmlcov
+*.pytest_cache
+
