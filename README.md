@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/Ruiru11/food-api.svg?branch=develop)](https://travis-ci.org/Ruiru11/food-api)
 # Fast-Food-Fast API V1
 
 * This is an api end point version 1 that will be used to return data 
