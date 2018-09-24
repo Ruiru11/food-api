@@ -8,6 +8,17 @@ class users(object):
     def __init__(self):
         self.users = []
 
+    def validate_username(self, name):
+        print(name)
+        if len(name) == 0:
+            response_object = {
+                "status": "fail",
+                "message": "username is empty enter username"
+            }
+            return(make_response(jsonify(response_object)))
+        else:
+            return True
+
     def validate_password(self, password):
         if len(password) < 6:
             response_object = {
@@ -26,21 +37,12 @@ class users(object):
 
     def validate_email(self, email):
         match = re.match(
-            '^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', email)
-        if match == None:
+            '^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$',
+            email)
+        if match is None:
             response_object = {
                 "status": "fail",
                 "message": "Please enter a valid email"
-            }
-            return(make_response(jsonify(response_object)))
-        else:
-            return True
-
-    def validate_username(self, username):
-        if len(username) < 4 or len(username) > 10:
-            response_object = {
-                "status": "fail",
-                "message": "username should be between 4 and 10 characters"
             }
             return(make_response(jsonify(response_object)))
         else:
@@ -52,8 +54,8 @@ class users(object):
         email = self.validate_email(data['email'])
         if password and username and email is True:
             user_id = len(self.users) + 1
-            user = {"id": user_id, "email": email,
-                    "password": password, "username": username}
+            user = {"id": user_id, "email": data['email'],
+                    "password": data['password'], "username": data['username']}
             self.users.append(user)
             response_object = {
                 "status": "success",
@@ -113,3 +115,6 @@ class users(object):
                         "message": "Check your email or password"
                     }
                     return(make_response(jsonify(response_object)))
+
+    def get_users(self):
+        return(jsonify(self.users))

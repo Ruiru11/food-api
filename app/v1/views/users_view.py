@@ -1,6 +1,6 @@
-from flask import Blueprint, request, json
-from flask_restful import reqparse, request
-from app.main.controllers.users_controller import users
+from flask import Blueprint
+from flask_restful import reqparse
+from app.v1.controllers.users_controller import users
 
 mod_users = Blueprint('users', __name__, url_prefix='/api/v1')
 
@@ -31,9 +31,11 @@ def signup():
     return usr.create_user(data)
 
 
+@mod_users.route('/users', methods=['GET'])
+def get_users():
+    return usr.get_users()
+
+
 @mod_users.route('/', methods=['GET'])
 def root():
     return ("FOOD API V1 .An api service for the First-food-fast project")
-
-
-

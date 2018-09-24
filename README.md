@@ -1,6 +1,6 @@
 # Fast-Food-Fast API V1
 
-* This is and api end point version 1 that will be used to return data 
+* This is an api end point version 1 that will be used to return data 
 
 # Endpoints:
  ## user-signup :

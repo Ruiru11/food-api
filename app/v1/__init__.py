@@ -1,8 +1,8 @@
 from flask import Flask
 
 from .config import config_by_name
-from app.main.views.users_view import mod_users
-from app.main.views.orders_view import mod_orders
+from app.v1.views.users_view import mod_users
+from app.v1.views.orders_view import mod_orders
 
 
 def create_app(config_name):

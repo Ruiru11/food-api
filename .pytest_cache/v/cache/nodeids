@@ -1,0 +1,23 @@
+[
+  "test_order.py::TestOrders::test_create_order",
+  "test_order.py::TestOrders::test_create_order_message",
+  "test_order.py::TestOrders::test_create_user",
+  "test_order.py::TestOrders::test_delete_order_by_id",
+  "test_order.py::TestOrders::test_email_is_in_wrong_format",
+  "test_order.py::TestOrders::test_get_all_orders",
+  "test_order.py::TestOrders::test_get_order_by_id",
+  "test_order.py::TestOrders::test_get_orders_if_no_orders",
+  "test_order.py::TestOrders::test_if_item_empty",
+  "test_order.py::TestOrders::test_if_password_less_than_six_characters",
+  "test_order.py::TestOrders::test_item_contains_numbers",
+  "test_order.py::TestOrders::test_item_length_less_than_three",
+  "test_order.py::TestOrders::test_item_length_more_than_10",
+  "test_order.py::TestOrders::test_order_creation_message",
+  "test_order.py::TestOrders::test_password_more_than_twelve_characters",
+  "test_order.py::TestOrders::test_price_is_empty",
+  "test_order.py::TestOrders::test_price_is_only_numbers",
+  "test_order.py::TestOrders::test_quantity_more_than_10_chae",
+  "test_order.py::TestOrders::test_update_message",
+  "test_order.py::TestOrders::test_update_order_by_id",
+  "test_order.py::TestOrders::test_validate_if_quantity_empty"
+]

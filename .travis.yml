@@ -1,0 +1,14 @@
+langauge:python
+python:
+  "3.6"
+
+install:
+  -pip install -r requirements.txt
+  -pip install coveralls
+  -pip install pytest-cov
+
+  script:
+    -pytest --cov = test_order.py 
+
+  after_sucess:
+    -coveralls
