@@ -7,7 +7,7 @@ order_instance = Orders()
 mod_orders = Blueprint('orders', __name__, url_prefix='/api/v1')
 
 
-@mod_orders.route('/make', methods=['GET', 'POST'])
+@mod_orders.route('/orders', methods=['POST'])
 def create_order():
     parser = reqparse.RequestParser()
     parser.add_argument('quantity', type=str, location="json")
@@ -22,17 +22,17 @@ def get_orders():
     return order_instance.get_orders()
 
 
-@mod_orders.route('/delete/<int:id>', methods=['GET'])
+@mod_orders.route('/orders/<int:id>', methods=['DELETE'])
 def delete_order(id):
     return order_instance.delete_order(id)
 
 
-@mod_orders.route('/order/<int:id>', methods=['GET'])
+@mod_orders.route('/orders/<int:id>', methods=['GET'])
 def get_order(id):
     return order_instance.get_order(id)
 
 
-@mod_orders.route('/update/<int:id>', methods=['PUT'])
+@mod_orders.route('/orders/<int:id>', methods=['PUT'])
 def update_order(id):
     parser = reqparse.RequestParser()
     parser.add_argument('status', type=str, location="json")
