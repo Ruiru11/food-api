@@ -8,9 +8,7 @@ install:
   - pip install pytest-cov
 
 script: 
-  - pytest 
-  - coverage run test_order.py
-  - cov=app
+  - pytest --cov=app test_order.py
 
 
 after_success:
