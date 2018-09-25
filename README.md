@@ -16,7 +16,7 @@
  ## getting all orders:
 - route:https://aeh-api.herokuapp.com/api/v1/orders
  ## getting a specific order using its id:
-- route:https://aeh-api.herokuapp.com/api/v1/order/id
+- route:https://aeh-api.herokuapp.com/api/v1/orders/id
  ## deleting an oder(use its specific id):
 - route:https://aeh-api.herokuapp.com/api/v1/orders/id
  ## updating an order(use its specific id)
