@@ -11,7 +11,7 @@ script:
   - pytest 
   - coverage run test_order.py
   - coverage report
-  - coveralls
+
 
 after_success:
   - coveralls
