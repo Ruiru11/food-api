@@ -11,6 +11,9 @@ class TestOrders(unittest.TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
 
+    def teardown(self):
+        self.app_context.pop()
+
     def test_create_order(self):
         data = {
             "item": "chicken",
@@ -23,7 +26,6 @@ class TestOrders(unittest.TestCase):
             headers={"content-type": "application/json"}
         )
         self.assertEqual(res.status_code, 200)
-        self.assertIn("created successfully", str(res.data))
 
     def test_create_order_message(self):
         data = {
@@ -45,8 +47,7 @@ class TestOrders(unittest.TestCase):
             "api/v1/orders",
             headers={"content-type": "application/json"}
         )
-        result = json.loads(res.data.decode('utf-8'))
-        print(result)
+        self.assertEqual(res.status_code, 200)
 
     def test_delete_order_by_id(self):
         res = self.client.get(
