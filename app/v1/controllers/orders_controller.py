@@ -28,6 +28,12 @@ class Orders(object):
                 "message": "price cannot be empyt"
             }
             return(make_response(jsonify(response_object)))
+        elif len(name) > 5:
+            response_object ={
+                "status":"fail",
+                "message":"price cannot be that much "
+            }
+            return(make_response(jsonify(response_object)))
         elif any(i.isdigit() for i in name) is False:
             response_object = {
                 "status": "fail",
