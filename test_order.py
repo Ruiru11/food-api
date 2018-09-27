@@ -201,6 +201,21 @@ class TestOrders(unittest.TestCase):
         self.assertEqual(result['message'],
                          "price cannot be empyt")
 
+    def test_price_way_too_much(self):
+        data = {
+            "item":"",
+            "price":"900000",
+            "quantity":"ghghg"
+        }
+        res = self.client.post(
+            "api/v1/orders",
+            data=json.dumps(data),
+            headers={"content-type": "application/json"}
+        )
+        result = json.loads(res.data.decode('utf-8'))
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(result['message'],"price cannot be that much ")
+
     def test_price_is_only_numbers(self):
         data = {
             "item": "",
@@ -287,6 +302,7 @@ class TestOrders(unittest.TestCase):
         result = json.loads(res.data.decode('utf-8'))
         self.assertEqual(result['message'],
                          "Password length must be less than 12")
+    	
 
 
 if __name__ == "__main__":
