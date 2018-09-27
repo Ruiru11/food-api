@@ -302,6 +302,22 @@ class TestOrders(unittest.TestCase):
         result = json.loads(res.data.decode('utf-8'))
         self.assertEqual(result['message'],
                          "Password length must be less than 12")
+
+    def test_get_order_that_doesnot_exist(self):
+        data = {
+            "item": "ugali",
+            "price": "200",
+            "quantity": "2plates",
+        }
+        res =  res = self.client.get(
+            "api/v1/orders/3",
+            data=json.dumps(data),
+            headers={"content-type": "application/json"}
+        )
+        result = json.loads(res.data.decode('utf-8'))
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(result['message'], "no order with that id")
+        
     	
 
 
