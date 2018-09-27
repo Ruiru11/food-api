@@ -96,6 +96,13 @@ class Orders(object):
             if order['id'] == id:
                 print(order)
                 return(make_response(jsonify(order)))
+            elif order['id'] !=id:
+                print("acha upuzi")
+                response_object = {
+                    "status":"fail",
+                    "message":"no order with that id"
+                }
+                return(make_response(jsonify(response_object)))
 
     def delete_order(self, id):
         for i, order in enumerate(self.orders):
