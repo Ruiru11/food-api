@@ -14,6 +14,7 @@ def create_order():
     parser.add_argument('item', type=str, location="json")
     parser.add_argument('price', type=str, location="json")
     data = parser.parse_args()
+    
     return order_instance.create_order(data)
 
 
